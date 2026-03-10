@@ -1,3 +1,11 @@
+<!-- BADGES:START -->
+[![CI](https://github.com/POps-Rox/tf-gh-actions/actions/workflows/ci.yml/badge.svg)](https://github.com/POps-Rox/tf-gh-actions/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/POps-Rox/tf-gh-actions/pulls)
+[![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/POps-Rox/tf-gh-actions/graphs/commit-activity)
+[![Terraform](https://img.shields.io/badge/Terraform-%3E%3D1.5-623CE4.svg?logo=terraform)](https://www.terraform.io)
+<!-- BADGES:END -->
+
 # Terraform GitHub Actions ![release](https://img.shields.io/github/v/release/azurenoops/terraform-github-actions)![job runs](https://img.shields.io/docker/pulls/danielflook/terraform-github-actions?label=job%20runs)
 
 This is a suite of terraform related GitHub Actions that can be used together to build effective Infrastructure as Code workflows.
