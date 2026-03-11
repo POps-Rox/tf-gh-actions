@@ -1,0 +1,22 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: tf-gh-actions
+  description: Reusable GitHub Actions for Terraform CI/CD workflows
+  annotations:
+    github.com/project-slug: POps-Rox/tf-gh-actions
+    backstage.io/techdocs-ref: dir:.
+  tags:
+    - terraform
+    - github-actions
+    - ci-cd
+    - platform-ops
+  links:
+    - url: https://github.com/POps-Rox/tf-gh-actions
+      title: GitHub Repository
+      icon: github
+spec:
+  type: terraform-module
+  owner: platform-ops-team
+  lifecycle: production
+  system: pops-rox-platform
