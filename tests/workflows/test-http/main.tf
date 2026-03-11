@@ -1,5 +1,5 @@
 module "git_https_source" {
-  source = "git::https://github.com/azurenoops/terraform-github-actions-dev.git//tests/workflows/test-http/test-module"
+  source = "git::https://github.com/POps-Rox/tf-gh-actions.git//tests/workflows/test-http/test-module"
 }
 
 output "git_https" {
