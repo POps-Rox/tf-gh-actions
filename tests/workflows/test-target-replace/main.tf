@@ -3,7 +3,7 @@ resource "random_string" "count" {
 
   length = var.length
 
-  special = false
+  special     = false
   min_special = 0
 }
 
@@ -12,7 +12,7 @@ resource "random_string" "foreach" {
 
   length = var.length
 
-  special = false
+  special     = false
   min_special = 0
 }
 

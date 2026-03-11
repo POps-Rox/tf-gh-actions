@@ -1,4 +1,4 @@
 variable "my_variable" {}
 output "out" {
-  value = "${var.my_variable}"
+  value = var.my_variable
 }

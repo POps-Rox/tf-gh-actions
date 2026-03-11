@@ -12,7 +12,7 @@ output "my_number" {
 }
 
 output "my_sensitive_number" {
-  value = 6
+  value     = 6
   sensitive = true
 }
 
@@ -21,7 +21,7 @@ output "my_string" {
 }
 
 output "my_sensitive_string" {
-  value = "password"
+  value     = "password"
   sensitive = true
 }
 
@@ -34,7 +34,7 @@ EOF
 }
 
 output "my_sensitive_multiline_string" {
-  value = <<EOF
+  value     = <<EOF
 qowicznobnad
 trewptonopce
 zxicvbnoberg
@@ -47,7 +47,7 @@ output "my_bool" {
 }
 
 output "my_sensitive_bool" {
-  value = false
+  value     = false
   sensitive = true
 }
 
@@ -56,23 +56,23 @@ output "my_list" {
 }
 
 output "my_sensitive_list" {
-  value = tolist(toset(["one", "two"]))
+  value     = tolist(toset(["one", "two"]))
   sensitive = true
 }
 
 output "my_map" {
   value = tomap({
-    first = "one"
+    first  = "one"
     second = "two"
-    third = 3
+    third  = 3
   })
 }
 
 output "my_sensitive_map" {
   value = tomap({
-    first = "one"
+    first  = "one"
     second = "two"
-    third = 3
+    third  = 3
   })
   sensitive = true
 }
@@ -82,23 +82,23 @@ output "my_set" {
 }
 
 output "my_sensitive_set" {
-  value = toset(["one", "two"])
+  value     = toset(["one", "two"])
   sensitive = true
 }
 
 output "my_object" {
   value = {
-    first = "one"
+    first  = "one"
     second = "two"
-    third = 3
+    third  = 3
   }
 }
 
 output "my_sensitive_object" {
   value = {
-    first = "one"
+    first  = "one"
     second = "two"
-    third = 3
+    third  = 3
   }
   sensitive = true
 }
@@ -108,15 +108,15 @@ output "my_tuple" {
 }
 
 output "my_sensitive_tuple" {
-  value = ["one", "two"]
+  value     = ["one", "two"]
   sensitive = true
 }
 
 output "my_compound_output" {
   value = {
-    first = tolist(toset(["one", "two"]))
+    first  = tolist(toset(["one", "two"]))
     second = toset(["one", "two"])
-    third = 3
+    third  = 3
   }
 }
 

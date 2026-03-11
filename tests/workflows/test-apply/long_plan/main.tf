@@ -9,6 +9,6 @@ resource "random_id" "b" {
 }
 
 variable "length" {
-  type = number
+  type    = number
   default = 3
 }

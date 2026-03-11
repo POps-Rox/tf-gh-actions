@@ -20,11 +20,11 @@ resource "aws_s3_bucket" "bucket" {
 
 terraform {
   backend "remote" {
-    hostname = "app.terraform.io"
+    hostname     = "app.terraform.io"
     organization = "flooktech"
 
     workspaces {
-        name = "banana"
+      name = "banana"
     }
   }
 }

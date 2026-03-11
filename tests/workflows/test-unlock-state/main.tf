@@ -1,14 +1,14 @@
 terraform {
   backend "s3" {
-    bucket = "terraform-github-actions"
-    key    = "test-unlock-state"
-    region = "eu-west-2"
+    bucket         = "terraform-github-actions"
+    key            = "test-unlock-state"
+    region         = "eu-west-2"
     dynamodb_table = "terraform-github-actions"
   }
 
   required_providers {
     null = {
-      source = "hashicorp/null"
+      source  = "hashicorp/null"
       version = "3.2.1"
     }
   }

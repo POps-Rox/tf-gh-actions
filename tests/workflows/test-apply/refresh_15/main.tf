@@ -1,9 +1,9 @@
 resource "random_string" "my_string" {
-  length      = var.len
+  length = var.len
 }
 
 output "s" {
-  value = "${random_string.my_string}"
+  value = random_string.my_string
 }
 
 terraform {

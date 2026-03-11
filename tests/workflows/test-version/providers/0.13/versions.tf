@@ -4,7 +4,7 @@ terraform {
       source = "terraform-providers/acme"
     }
     random = {
-      source = "hashicorp/random"
+      source  = "hashicorp/random"
       version = "2.2.0"
     }
   }

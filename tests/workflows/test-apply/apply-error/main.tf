@@ -5,6 +5,6 @@ resource "aws_s3_bucket" "my_bucket" {
   bucket = "hello"
 }
 
-provider aws {
+provider "aws" {
   region = "eu-west-2"
 }

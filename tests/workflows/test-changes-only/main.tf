@@ -7,6 +7,6 @@ variable "len" {
 }
 
 resource "random_string" "the_string" {
-  count = var.cause-changes ? 1 : 0
+  count  = var.cause-changes ? 1 : 0
   length = var.len
 }

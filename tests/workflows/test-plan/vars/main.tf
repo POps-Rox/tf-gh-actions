@@ -1,5 +1,5 @@
 resource "random_string" "my_string" {
-  length      = 11
+  length = 11
 }
 
 output "output_string" {
@@ -7,12 +7,12 @@ output "output_string" {
 }
 
 variable "my_var" {
-  type = string
+  type    = string
   default = "my_var_default"
 }
 
 variable "my_var_from_file" {
-  type = string
+  type    = string
   default = "my_var_from_file_default"
 }
 
@@ -25,7 +25,7 @@ variable "my_float" {
 }
 
 variable "my_sensitive_string" {
-  default = "danger"
+  default   = "danger"
   sensitive = true
 }
 
