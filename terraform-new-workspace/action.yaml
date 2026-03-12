@@ -1,6 +1,6 @@
 name: terraform-new-workspace
 description: Create a new terraform workspace
-author: Daniel Flook
+author: POps-Rox
 
 inputs:
   path:

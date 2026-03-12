@@ -1,6 +1,6 @@
 name: terraform-remote-state
 description: Retrieve remote state from a backend
-author: Daniel Flook
+author: POps-Rox
 
 inputs:
   backend_type:

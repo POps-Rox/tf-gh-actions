@@ -1,6 +1,6 @@
 name: terraform-unlock-state
 description: Unlock previously locked Terraform state
-author: Patrick Almeida
+author: POps-Rox
 
 inputs:
   path:

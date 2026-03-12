@@ -1,6 +1,6 @@
 name: terraform-fmt
 description: Rewrite terraform files into canonical format
-author: Daniel Flook
+author: POps-Rox
 
 inputs:
   path:

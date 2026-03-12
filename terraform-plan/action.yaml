@@ -1,6 +1,6 @@
 name: terraform-plan
 description: Create a terraform plan
-author: Daniel Flook
+author: POps-Rox
 
 inputs:
   path:

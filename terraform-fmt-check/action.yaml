@@ -1,6 +1,6 @@
 name: terraform-fmt-check
 description: Check that Terraform configuration files are in canonical format
-author: Daniel Flook
+author: POps-Rox
 
 inputs:
   path:

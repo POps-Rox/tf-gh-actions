@@ -1,6 +1,6 @@
 name: terraform-destroy-workspace
 description: Delete a terraform workspace, destroying all resources
-author: Daniel Flook
+author: POps-Rox
 
 inputs:
   path:

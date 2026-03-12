@@ -1,6 +1,6 @@
 name: terraform-destroy
 description: Destroys all resources in a terraform workspace
-author: Daniel Flook
+author: POps-Rox
 
 inputs:
   path:

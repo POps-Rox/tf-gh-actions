@@ -1,6 +1,6 @@
 name: terraform-apply
 description: Apply terraform plan
-author: Daniel Flook
+author: POps-Rox
 
 inputs:
   path:

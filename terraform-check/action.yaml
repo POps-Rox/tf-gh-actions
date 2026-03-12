@@ -1,6 +1,6 @@
 name: terraform-check
 description: Check if there are terraform changes to apply
-author: Daniel Flook
+author: POps-Rox
 
 inputs:
   path:

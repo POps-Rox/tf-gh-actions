@@ -1,6 +1,6 @@
 name: terraform-validate
 description: Validate a terraform configuration directory
-author: Daniel Flook
+author: POps-Rox
 
 inputs:
   path:
