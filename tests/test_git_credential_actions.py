@@ -12,10 +12,10 @@ def test_read_credentials():
     input = '''
 
 nonsense
-example.com=azurenoops:mypassword
- github.com/azurenoops/terraform-github-actions.git=azurenoops-actions:anotherpassword
+example.com=myuser:mypassword
+ github.com/POps-Rox/tf-gh-actions.git=pops-rox-actions:anotherpassword
 
-github.com/azurenoops=azurenoops:secretpassword    
+github.com/POps-Rox=pops-rox:secretpassword    
 github.com=graham:abcd
 
 almost/=        user   :  pass
@@ -23,9 +23,9 @@ almost/=        user   :  pass
 '''
 
     expected_credentials = [
-        Credential('example.com', [], 'azurenoops', 'mypassword'),
-        Credential('github.com', ['azurenoops', 'terraform-github-actions.git'], 'azurenoops-actions', 'anotherpassword'),
-        Credential('github.com', ['azurenoops'], 'azurenoops', 'secretpassword'),
+        Credential('example.com', [], 'myuser', 'mypassword'),
+        Credential('github.com', ['POps-Rox', 'tf-gh-actions.git'], 'pops-rox-actions', 'anotherpassword'),
+        Credential('github.com', ['POps-Rox'], 'pops-rox', 'secretpassword'),
         Credential('github.com', [], 'graham', 'abcd'),
         Credential('almost', [], 'user', 'pass')
     ]
@@ -85,14 +85,14 @@ def test_split_path():
     assert [] == split_path(None)
     assert [] == split_path('/')
     assert ['hello'] == split_path('/hello')
-    assert ['azurenoops', 'terraform-github-actions.git'] == split_path('/azurenoops/terraform-github-actions.git')
+    assert ['POps-Rox', 'tf-gh-actions.git'] == split_path('/POps-Rox/tf-gh-actions.git')
 
 def test_get():
 
     credentials = [
-        Credential('example.com', [], 'azurenoops', 'mypassword'),
-        Credential('github.com', ['azurenoops', 'terraform-github-actions.git'], 'azurenoops-actions', 'anotherpassword'),
-        Credential('github.com', ['azurenoops'], 'azurenoops-org', 'secretpassword'),
+        Credential('example.com', [], 'myuser', 'mypassword'),
+        Credential('github.com', ['POps-Rox', 'tf-gh-actions.git'], 'pops-rox-actions', 'anotherpassword'),
+        Credential('github.com', ['POps-Rox'], 'pops-rox-org', 'secretpassword'),
         Credential('github.com', [], 'graham', 'abcd'),
         Credential('almost', [], 'user', 'pass')
     ]
@@ -102,10 +102,10 @@ def test_get():
 
     # No path, no username
     attributes = dict(protocol='https', host='example.com')
-    assert git_credential('get', attributes, credentials) == merge(attributes, username='azurenoops', password='mypassword')
+    assert git_credential('get', attributes, credentials) == merge(attributes, username='myuser', password='mypassword')
 
     # No path, required username match
-    attributes = dict(protocol='https', host='example.com', username='azurenoops')
+    attributes = dict(protocol='https', host='example.com', username='myuser')
     assert git_credential('get', attributes, credentials) == merge(attributes, password='mypassword')
 
     # No path, required username no match
@@ -113,27 +113,27 @@ def test_get():
     assert git_credential('get', attributes, credentials) == attributes
 
     # partial path, required username no match
-    attributes = dict(protocol='https', host='github.com', path='azurenoops', username='keith')
+    attributes = dict(protocol='https', host='github.com', path='POps-Rox', username='keith')
     assert git_credential('get', attributes, credentials) == attributes
 
     # full path
-    attributes = dict(protocol='https', host='github.com', path='azurenoops/terraform-github-actions.git')
-    assert git_credential('get', attributes, credentials) == merge(attributes, username='azurenoops-actions', password='anotherpassword')
+    attributes = dict(protocol='https', host='github.com', path='POps-Rox/tf-gh-actions.git')
+    assert git_credential('get', attributes, credentials) == merge(attributes, username='pops-rox-actions', password='anotherpassword')
 
     # partial path multiple segments
-    attributes = dict(protocol='https', host='github.com', path='azurenoops/terraform-github-actions.git/additional-segment')
-    assert git_credential('get', attributes, credentials) == merge(attributes, username='azurenoops-actions', password='anotherpassword')
+    attributes = dict(protocol='https', host='github.com', path='POps-Rox/tf-gh-actions.git/additional-segment')
+    assert git_credential('get', attributes, credentials) == merge(attributes, username='pops-rox-actions', password='anotherpassword')
 
     # partial path single segment
-    attributes = dict(protocol='https', host='github.com', path='azurenoops')
-    assert git_credential('get', attributes, credentials) == merge(attributes, username='azurenoops-org', password='secretpassword')
+    attributes = dict(protocol='https', host='github.com', path='POps-Rox')
+    assert git_credential('get', attributes, credentials) == merge(attributes, username='pops-rox-org', password='secretpassword')
 
     # no path match
     attributes = dict(protocol='https', host='github.com', path='sausage')
     assert git_credential('get', attributes, credentials) == merge(attributes, username='graham', password='abcd')
 
     # Cases we don't handle - return attributes unchanged
-    attributes = dict(protocol='https', host='example.com', username='azurenoops', password='mypassword')
+    attributes = dict(protocol='https', host='example.com', username='myuser', password='mypassword')
     assert git_credential('store', attributes, credentials) == attributes
 
     attributes = dict(protocol='https', host='example.com')
