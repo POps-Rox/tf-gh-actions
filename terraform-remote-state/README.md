@@ -1,6 +1,6 @@
 # terraform-remote-state action
 
-This is one of a suite of terraform related actions - find them at [azurenoops/terraform-github-actions](https://github.com/azurenoops/terraform-github-actions).
+This is one of a suite of terraform related actions - find them at [POps-Rox/tf-gh-actions](https://github.com/POps-Rox/tf-gh-actions).
 
 Retrieves the root-level outputs from a Terraform remote state.
 
@@ -81,7 +81,7 @@ output "service_hostname" {
 }
 ```
 Running this action will produce a `service_hostname` output with the same value.
-See [terraform-output](https://github.com/azurenoops/terraform-github-actions/tree/main/terraform-output) for details.
+See [terraform-output](https://github.com/POps-Rox/tf-gh-actions/tree/main/terraform-output) for details.
 
 ## Example usage
 
@@ -105,7 +105,7 @@ jobs:
     name: Check terraform file are formatted correctly
     steps:
       - name: Get remote state
-        uses: azurenoops/terraform-remote-state@v1
+        uses: POps-Rox/tf-gh-actions/terraform-remote-state@v1
         id: remote-state
         with:
           backend_type: s3

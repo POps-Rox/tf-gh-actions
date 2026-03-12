@@ -1,6 +1,6 @@
-This is one of a suite of terraform related actions - find them at [azurenoops/terraform-github-actions](https://github.com/azurenoops/terraform-github-actions).
+This is one of a suite of terraform related actions - find them at [POps-Rox/tf-gh-actions](https://github.com/POps-Rox/tf-gh-actions).
 
-You can see the changes for this release in the [CHANGELOG](https://github.com/azurenoops/terraform-github-actions/blob/main/CHANGELOG.md)
+You can see the changes for this release in the [CHANGELOG](https://github.com/POps-Rox/tf-gh-actions/blob/main/CHANGELOG.md)
 
 You can specify the action version as:
 

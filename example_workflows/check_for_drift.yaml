@@ -13,6 +13,6 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Check
-        uses: azurenoops/terraform-check@v1
+        uses: POps-Rox/tf-gh-actions/terraform-check@v1
         with:
           path: terraform

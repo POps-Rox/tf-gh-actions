@@ -1,11 +1,11 @@
 # terraform-destroy action
 
-This is one of a suite of terraform related actions - find them at [azurenoops/terraform-github-actions](https://github.com/azurenoops/terraform-github-actions).
+This is one of a suite of terraform related actions - find them at [POps-Rox/tf-gh-actions](https://github.com/POps-Rox/tf-gh-actions).
 
 :warning: This action uses the `terraform destroy` command to immediately destroy all resources in a terraform workspace.
 
-To generate a plan that can be reviewed you can instead use the [azurenoops/terraform-plan](https://github.com/azurenoops/terraform-github-actions/tree/main/terraform-plan) 
-and [azurenoops/terraform-apply](https://github.com/azurenoops/terraform-github-actions/tree/main/terraform-plan) actions with the `destroy` input set to `true`.
+To generate a plan that can be reviewed you can instead use the [POps-Rox/tf-gh-actions/terraform-plan](https://github.com/POps-Rox/tf-gh-actions/tree/main/terraform-plan) 
+and [POps-Rox/tf-gh-actions/terraform-apply](https://github.com/POps-Rox/tf-gh-actions/tree/main/terraform-plan) actions with the `destroy` input set to `true`.
 
 ## Inputs
 
@@ -212,9 +212,9 @@ and [azurenoops/terraform-apply](https://github.com/azurenoops/terraform-github-
   ```yaml
   env:
     TERRAFORM_HTTP_CREDENTIALS: |
-      example.com=azurenoops:${{ secrets.HTTPS_PASSWORD }}
-      github.com/azurenoops/terraform-github-actions.git=azurenoops-actions:${{ secrets.ACTIONS_PAT }}
-      github.com/azurenoops=azurenoops:${{ secrets.azurenoops_PAT }}
+      example.com=myuser:${{ secrets.HTTPS_PASSWORD }}
+      github.com/POps-Rox/tf-gh-actions.git=pops-rox-actions:${{ secrets.ACTIONS_PAT }}
+      github.com/POps-Rox=pops-rox:${{ secrets.POPS_ROX_PAT }}
       github.com=graham:${{ secrets.GITHUB_PAT }}  
   ```
 
@@ -241,7 +241,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: terraform destroy
-        uses: azurenoops/terraform-destroy@v1
+        uses: POps-Rox/tf-gh-actions/terraform-destroy@v1
         with:
           path: my-terraform-config
           workspace: ${{ github.head_ref }}
@@ -265,7 +265,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: terraform destroy
-        uses: azurenoops/terraform-destroy@v1
+        uses: POps-Rox/tf-gh-actions/terraform-destroy@v1
         id: first_try
         continue-on-error: true
         with:
@@ -273,7 +273,7 @@ jobs:
           workspace: ${{ github.head_ref }}
 
       - name: Retry failed destroy
-        uses: azurenoops/terraform-destroy@v1
+        uses: POps-Rox/tf-gh-actions/terraform-destroy@v1
         if: ${{ steps.first_try.outputs.failure-reason == 'destroy-failed' }}
         with:
           path: my-terraform-config

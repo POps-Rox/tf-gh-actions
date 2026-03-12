@@ -20,6 +20,6 @@ jobs:
         uses: actions/checkout@v3
 
       - name: terraform apply
-        uses: azurenoops/terraform-apply@v1
+        uses: POps-Rox/tf-gh-actions/terraform-apply@v1
         with:
           path: terraform

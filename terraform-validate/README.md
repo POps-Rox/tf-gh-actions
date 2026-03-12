@@ -1,6 +1,6 @@
 # terraform-validate action
 
-This is one of a suite of terraform related actions - find them at [azurenoops/terraform-github-actions](https://github.com/azurenoops/terraform-github-actions).
+This is one of a suite of terraform related actions - find them at [POps-Rox/tf-gh-actions](https://github.com/POps-Rox/tf-gh-actions).
 
 This action uses the `terraform validate` command to check that a terraform configuration is valid.
 This can be used to check that a configuration is valid before creating a plan.
@@ -28,7 +28,7 @@ If the terraform configuration is not valid, the build is failed.
   Terraform workspace to use for the `terraform.workspace` value while validating. Note that for remote operations in Terraform Cloud/Enterprise, this is always `default`.
 
   Also used for discovering the terraform version to use, if not otherwise specified. 
-  See [azurenoops/terraform-version](https://github.com/azurenoops/terraform-github-actions/tree/main/terraform-version#terraform-version-action) for details. 
+  See [POps-Rox/tf-gh-actions/terraform-version](https://github.com/POps-Rox/tf-gh-actions/tree/main/terraform-version#terraform-version-action) for details. 
 
   - Type: string
   - Optional
@@ -37,7 +37,7 @@ If the terraform configuration is not valid, the build is failed.
 * `backend_config`
 
   List of terraform backend config values, one per line. This is used for discovering the terraform version to use, if not otherwise specified. 
-  See [azurenoops/terraform-version](https://github.com/azurenoops/terraform-github-actions/tree/main/terraform-version#terraform-version-action) for details.
+  See [POps-Rox/tf-gh-actions/terraform-version](https://github.com/POps-Rox/tf-gh-actions/tree/main/terraform-version#terraform-version-action) for details.
 
   ```yaml
   with:
@@ -50,7 +50,7 @@ If the terraform configuration is not valid, the build is failed.
 * `backend_config_file`
 
   List of terraform backend config files to use, one per line. This is used for discovering the terraform version to use, if not otherwise specified. 
-  See [azurenoops/terraform-version](https://github.com/azurenoops/terraform-github-actions/tree/main/terraform-version#terraform-version-action) for details.
+  See [POps-Rox/tf-gh-actions/terraform-version](https://github.com/POps-Rox/tf-gh-actions/tree/main/terraform-version#terraform-version-action) for details.
   Paths should be relative to the GitHub Actions workspace
 
   ```yaml
@@ -146,9 +146,9 @@ If the terraform configuration is not valid, the build is failed.
   ```yaml
   env:
     TERRAFORM_HTTP_CREDENTIALS: |
-      example.com=azurenoops:${{ secrets.HTTPS_PASSWORD }}
-      github.com/azurenoops/terraform-github-actions.git=azurenoops-actions:${{ secrets.ACTIONS_PAT }}
-      github.com/azurenoops=azurenoops:${{ secrets.azurenoops_PAT }}
+      example.com=myuser:${{ secrets.HTTPS_PASSWORD }}
+      github.com/POps-Rox/tf-gh-actions.git=pops-rox-actions:${{ secrets.ACTIONS_PAT }}
+      github.com/POps-Rox=pops-rox:${{ secrets.POPS_ROX_PAT }}
       github.com=graham:${{ secrets.GITHUB_PAT }}  
   ```
 
@@ -172,7 +172,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: terraform validate
-        uses: azurenoops/terraform-validate@v1
+        uses: POps-Rox/tf-gh-actions/terraform-validate@v1
         with:
           path: my-terraform-config
 ```
@@ -191,7 +191,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: terraform validate
-        uses: azurenoops/terraform-validate@v1
+        uses: POps-Rox/tf-gh-actions/terraform-validate@v1
         id: validate
         with:
           path: my-terraform-config

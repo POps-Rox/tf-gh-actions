@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+> **Note:** This project is a fork of [dflook/terraform-github-actions](https://github.com/dflook/terraform-github-actions)
+> (via [azurenoops/terraform-github-actions](https://github.com/azurenoops/terraform-github-actions)).
+> Historical entries below reference the upstream `azurenoops` organization.
+
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 

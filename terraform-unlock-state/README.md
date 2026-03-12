@@ -1,6 +1,6 @@
 # terraform-unlock-state action
 
-This is one of a suite of terraform related actions - find them at [azurenoops/terraform-github-actions](https://github.com/azurenoops/terraform-github-actions).
+This is one of a suite of terraform related actions - find them at [POps-Rox/tf-gh-actions](https://github.com/POps-Rox/tf-gh-actions).
 
 Force unlocks a Terraform remote state.
 
@@ -109,9 +109,9 @@ Force unlocks a Terraform remote state.
   ```yaml
   env:
     TERRAFORM_HTTP_CREDENTIALS: |
-      example.com=azurenoops:${{ secrets.HTTPS_PASSWORD }}
-      github.com/azurenoops/terraform-github-actions.git=azurenoops-actions:${{ secrets.ACTIONS_PAT }}
-      github.com/azurenoops=azurenoops:${{ secrets.azurenoops_PAT }}
+      example.com=myuser:${{ secrets.HTTPS_PASSWORD }}
+      github.com/POps-Rox/tf-gh-actions.git=pops-rox-actions:${{ secrets.ACTIONS_PAT }}
+      github.com/POps-Rox=pops-rox:${{ secrets.POPS_ROX_PAT }}
       github.com=graham:${{ secrets.GITHUB_PAT }}  
   ```
 
@@ -167,7 +167,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Terraform Unlock
-        uses: azurenoops/terraform-unlock-state@v1
+        uses: POps-Rox/tf-gh-actions/terraform-unlock-state@v1
         with:
           path: ${{ github.event.inputs.path }}
           lock_id: ${{ github.event.inputs.lock_id }}

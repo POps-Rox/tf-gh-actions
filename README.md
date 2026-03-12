@@ -6,7 +6,7 @@
 [![Terraform](https://img.shields.io/badge/Terraform-%3E%3D1.5-623CE4.svg?logo=terraform)](https://www.terraform.io)
 <!-- BADGES:END -->
 
-# Terraform GitHub Actions ![release](https://img.shields.io/github/v/release/azurenoops/terraform-github-actions)![job runs](https://img.shields.io/docker/pulls/danielflook/terraform-github-actions?label=job%20runs)
+# Terraform GitHub Actions ![release](https://img.shields.io/github/v/release/POps-Rox/tf-gh-actions)![job runs](https://img.shields.io/docker/pulls/POps-Rox/tf-gh-actions?label=job%20runs)
 
 This is a suite of terraform related GitHub Actions that can be used together to build effective Infrastructure as Code workflows.
 
@@ -16,19 +16,19 @@ These actions can be used to easily perform [Terraform](https://www.terraform.io
 ## Actions
 See the documentation for the available actions:
 
-- [azurenoops/terraform-plan](terraform-plan)
-- [azurenoops/terraform-apply](terraform-apply)
-- [azurenoops/terraform-output](terraform-output)
-- [azurenoops/terraform-remote-state](terraform-remote-state)
-- [azurenoops/terraform-validate](terraform-validate)
-- [azurenoops/terraform-fmt-check](terraform-fmt-check)
-- [azurenoops/terraform-fmt](terraform-fmt)
-- [azurenoops/terraform-check](terraform-check)
-- [azurenoops/terraform-new-workspace](terraform-new-workspace)
-- [azurenoops/terraform-destroy-workspace](terraform-destroy-workspace)
-- [azurenoops/terraform-destroy](terraform-destroy)
-- [azurenoops/terraform-version](terraform-version)
-- [azurenoops/terraform-unlock-state](terraform-unlock-state)
+- [POps-Rox/tf-gh-actions/terraform-plan](terraform-plan)
+- [POps-Rox/tf-gh-actions/terraform-apply](terraform-apply)
+- [POps-Rox/tf-gh-actions/terraform-output](terraform-output)
+- [POps-Rox/tf-gh-actions/terraform-remote-state](terraform-remote-state)
+- [POps-Rox/tf-gh-actions/terraform-validate](terraform-validate)
+- [POps-Rox/tf-gh-actions/terraform-fmt-check](terraform-fmt-check)
+- [POps-Rox/tf-gh-actions/terraform-fmt](terraform-fmt)
+- [POps-Rox/tf-gh-actions/terraform-check](terraform-check)
+- [POps-Rox/tf-gh-actions/terraform-new-workspace](terraform-new-workspace)
+- [POps-Rox/tf-gh-actions/terraform-destroy-workspace](terraform-destroy-workspace)
+- [POps-Rox/tf-gh-actions/terraform-destroy](terraform-destroy)
+- [POps-Rox/tf-gh-actions/terraform-version](terraform-version)
+- [POps-Rox/tf-gh-actions/terraform-unlock-state](terraform-unlock-state)
 
 ## Example Usage
 These terraform actions can be added as steps to your own workflow files.
@@ -48,7 +48,7 @@ We can use PRs to safely plan and apply infrastructure changes.
     <img src="terraform-apply/planapply.gif" width="1000">
 </p>
 
-You can make GitHub enforce this using branch protection, see the [azurenoops/terraform-apply](terraform-apply) action for details.
+You can make GitHub enforce this using branch protection, see the [POps-Rox/tf-gh-actions/terraform-apply](terraform-apply) action for details.
 
 In this example we use two workflows:
 
@@ -74,7 +74,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: terraform plan
-        uses: azurenoops/terraform-plan@v1
+        uses: POps-Rox/tf-gh-actions/terraform-plan@v1
         with:
           path: my-terraform-config
 ```
@@ -104,7 +104,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: terraform apply
-        uses: azurenoops/terraform-apply@v1
+        uses: POps-Rox/tf-gh-actions/terraform-apply@v1
         with:
           path: my-terraform-config
 ```
@@ -137,7 +137,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: terraform validate
-        uses: azurenoops/terraform-validate@v1
+        uses: POps-Rox/tf-gh-actions/terraform-validate@v1
         with:
           path: my-terraform-config
 
@@ -149,7 +149,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: terraform fmt
-        uses: azurenoops/terraform-fmt-check@v1
+        uses: POps-Rox/tf-gh-actions/terraform-fmt-check@v1
         with:
           path: my-terraform-config
 ```
@@ -178,7 +178,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Check for drift
-        uses: azurenoops/terraform-check@v1
+        uses: POps-Rox/tf-gh-actions/terraform-check@v1
         with:
           path: my-terraform-config
 ```
@@ -206,7 +206,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Rotate certs
-        uses: azurenoops/terraform-apply@v1
+        uses: POps-Rox/tf-gh-actions/terraform-apply@v1
         with:
           path: my-terraform-config
           auto_approve: true
@@ -236,7 +236,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: terraform fmt
-        uses: azurenoops/terraform-fmt@v1
+        uses: POps-Rox/tf-gh-actions/terraform-fmt@v1
         with:
           path: my-terraform-config
           
@@ -274,13 +274,13 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Use branch workspace
-        uses: azurenoops/terraform-new-workspace@v1
+        uses: POps-Rox/tf-gh-actions/terraform-new-workspace@v1
         with:
           path: my-terraform-config
           workspace: ${{ github.head_ref }}
           
       - name: Deploy test infrastrucutre
-        uses: azurenoops/terraform-apply@v1
+        uses: POps-Rox/tf-gh-actions/terraform-apply@v1
         id: test-infra
         with:
           path: my-terraform-config
@@ -310,7 +310,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: terraform destroy
-        uses: azurenoops/terraform-destroy-workspace@v1
+        uses: POps-Rox/tf-gh-actions/terraform-destroy-workspace@v1
         with:
           path: my-terraform-config
           workspace: ${{ github.head_ref }}

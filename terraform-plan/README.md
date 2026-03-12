@@ -1,6 +1,6 @@
 # terraform-plan action
 
-This is one of a suite of terraform related actions - find them at [azurenoops/terraform-github-actions](https://github.com/azurenoops/terraform-github-actions).
+This is one of a suite of terraform related actions - find them at [POps-Rox/tf-gh-actions](https://github.com/POps-Rox/tf-gh-actions).
 
 This actions generates a terraform plan.
 If the triggering event relates to a PR it will add a comment on the PR containing the generated plan.
@@ -12,7 +12,7 @@ If the triggering event relates to a PR it will add a comment on the PR containi
 The `GITHUB_TOKEN` environment variable must be set for the PR comment to be added.
 The action can be run on other events, which prints the plan to the workflow log.
 
-The [azurenoops/terraform-apply](https://github.com/azurenoops/terraform-github-actions/tree/main/terraform-apply) action can be used to apply the generated plan.
+The [POps-Rox/tf-gh-actions/terraform-apply](https://github.com/POps-Rox/tf-gh-actions/tree/main/terraform-apply) action can be used to apply the generated plan.
 
 ## Inputs
 
@@ -285,9 +285,9 @@ The [azurenoops/terraform-apply](https://github.com/azurenoops/terraform-github-
   ```yaml
   env:
     TERRAFORM_HTTP_CREDENTIALS: |
-      example.com=azurenoops:${{ secrets.HTTPS_PASSWORD }}
-      github.com/azurenoops/terraform-github-actions.git=azurenoops-actions:${{ secrets.ACTIONS_PAT }}
-      github.com/azurenoops=azurenoops:${{ secrets.azurenoops_PAT }}
+      example.com=myuser:${{ secrets.HTTPS_PASSWORD }}
+      github.com/POps-Rox/tf-gh-actions.git=pops-rox-actions:${{ secrets.ACTIONS_PAT }}
+      github.com/POps-Rox=pops-rox:${{ secrets.POPS_ROX_PAT }}
       github.com=graham:${{ secrets.GITHUB_PAT }}  
   ```
 
@@ -411,7 +411,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: terraform plan
-        uses: azurenoops/terraform-plan@v1
+        uses: POps-Rox/tf-gh-actions/terraform-plan@v1
         with:
           path: my-terraform-config
 ```
@@ -447,7 +447,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: terraform plan
-        uses: azurenoops/terraform-plan@v1
+        uses: POps-Rox/tf-gh-actions/terraform-plan@v1
         with:
           path: my-terraform-config
           label: production
@@ -488,7 +488,7 @@ jobs:
           ref: refs/pull/${{ github.event.issue.number }}/merge
 
       - name: terraform plan
-        uses: azurenoops/terraform-plan@v1
+        uses: POps-Rox/tf-gh-actions/terraform-plan@v1
         with:
           path: my-terraform-config
 ```

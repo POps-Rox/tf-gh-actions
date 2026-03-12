@@ -1,6 +1,6 @@
 # terraform-destroy-workspace action
 
-This is one of a suite of terraform related actions - find them at [azurenoops/terraform-github-actions](https://github.com/azurenoops/terraform-github-actions).
+This is one of a suite of terraform related actions - find them at [POps-Rox/tf-gh-actions](https://github.com/POps-Rox/tf-gh-actions).
 
 This action uses the `terraform destroy` command to destroy all resources in a terraform workspace and then delete the workspace.
 
@@ -203,9 +203,9 @@ This action uses the `terraform destroy` command to destroy all resources in a t
   ```yaml
   env:
     TERRAFORM_HTTP_CREDENTIALS: |
-      example.com=azurenoops:${{ secrets.HTTPS_PASSWORD }}
-      github.com/azurenoops/terraform-github-actions.git=azurenoops-actions:${{ secrets.ACTIONS_PAT }}
-      github.com/azurenoops=azurenoops:${{ secrets.azurenoops_PAT }}
+      example.com=myuser:${{ secrets.HTTPS_PASSWORD }}
+      github.com/POps-Rox/tf-gh-actions.git=pops-rox-actions:${{ secrets.ACTIONS_PAT }}
+      github.com/POps-Rox=pops-rox:${{ secrets.POPS_ROX_PAT }}
       github.com=graham:${{ secrets.GITHUB_PAT }}  
   ```
 
@@ -232,7 +232,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: terraform destroy
-        uses: azurenoops/terraform-destroy-workspace@v1
+        uses: POps-Rox/tf-gh-actions/terraform-destroy-workspace@v1
         with:
           path: terraform
           workspace: ${{ github.head_ref }}
@@ -256,7 +256,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: terraform destroy
-        uses: azurenoops/terraform-destroy-workspace@v1
+        uses: POps-Rox/tf-gh-actions/terraform-destroy-workspace@v1
         id: first_try
         continue-on-error: true
         with:
@@ -264,7 +264,7 @@ jobs:
           workspace: ${{ github.head_ref }}
 
       - name: Retry failed destroy
-        uses: azurenoops/terraform-destroy-workspace@v1
+        uses: POps-Rox/tf-gh-actions/terraform-destroy-workspace@v1
         if: ${{ steps.first_try.outputs.failure-reason == 'destroy-failed' }}
         with:
           path: my-terraform-config
