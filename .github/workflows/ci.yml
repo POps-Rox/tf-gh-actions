@@ -63,7 +63,17 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
 
       - name: Run TFLint
-        run: tflint --recursive --format compact --minimum-failure-severity=error
+        run: |
+          # Skip test fixtures that contain intentionally malformed Terraform
+          dirs=$(find . -name '*.tf' -not -path './tests/*' -not -path './.terraform/*' -exec dirname {} \; | sort -u)
+          if [ -z "$dirs" ]; then
+            echo "No Terraform files to lint outside of test fixtures"
+            exit 0
+          fi
+          for dir in $dirs; do
+            echo "Linting $dir..."
+            tflint --chdir="$dir" --format compact --minimum-failure-severity=error || exit 1
+          done
 
   terraform-plan:
     name: "📋 Plan (Validation)"
