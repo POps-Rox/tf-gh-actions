@@ -1,4 +1,4 @@
-FROM azurenoops/tf-actions-base:latest
+FROM ghcr.io/pops-rox/tf-actions-base:latest
 
 ARG TARGETARCH
 
